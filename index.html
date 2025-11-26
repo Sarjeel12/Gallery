@@ -9,20 +9,17 @@
 </head>
 
 <body>
+    <div class="slider-container">
+        <img id="image" src="images/420100.jpg">
 
-    <div class="container">
-        <img src="images/194023.jpg" alt="" id="image">
-        <div>
-            <button onclick="preImg()" style="display: none;" id="btnPrevious">
-                Previous
-            </button>
-            <button onclick="nextImg()" id="btnNext">
-                Next
-            </button>
+        <div id="btnPrevious" class="arrow-left disabled" onclick="preImg()">
+            &#10094;
+        </div>
+
+        <div id="btnNext" class="arrow-right" onclick="nextImg()">
+            &#10095;
         </div>
     </div>
-
-
 
     <script src="script.js"></script>
 </body>

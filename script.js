@@ -5,30 +5,34 @@ var gallery = [
     "images/194228.jpg",
 ];
 
-var image = document.getElementById("image")
-var btnNext = document.getElementById("btnNext")
-var btnPrevious = document.getElementById("btnPrevious")
-var currentIndex = 0
+var image = document.getElementById("image");
+var btnNext = document.getElementById("btnNext");
+var btnPrevious = document.getElementById("btnPrevious");
+
+var currentIndex = 0;
 
 function nextImg() {
-    currentIndex += 1
-    image.src = gallery[currentIndex]
-    if (currentIndex == 3) {
-        btnNext.style.display = "none"
-    }
-    if (currentIndex > 0) {
-        btnPrevious.style.display = "inline"
+    if (currentIndex < gallery.length - 1) {
+        currentIndex++;
+        image.src = gallery[currentIndex];
     }
 
+    if (currentIndex === gallery.length - 1) {
+        btnNext.classList.add("disabled");
+    }
+
+    btnPrevious.classList.remove("disabled");
 }
 
 function preImg() {
-    currentIndex -= 1
-    image.src = gallery[currentIndex]
-    if (currentIndex < gallery.length) {
-        btnNext.style.display = "inline"
+    if (currentIndex > 0) {
+        currentIndex--;
+        image.src = gallery[currentIndex];
     }
-    if (currentIndex == 0) {
-        btnPrevious.style.display = "none"
+
+    if (currentIndex === 0) {
+        btnPrevious.classList.add("disabled");
     }
+
+    btnNext.classList.remove("disabled");
 }
